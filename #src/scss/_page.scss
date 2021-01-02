@@ -1,0 +1,498 @@
+.order {
+  background: $pageColor;
+  padding: 80px 0 50px;
+  @include md(padding, 60px 0 50px);
+  @include sm(padding, 30px 0 40px);
+  @include xs(padding, 20px 0 40px);
+
+  &__container {
+    max-width: 920px;
+  }
+  &__form-wrapper {
+    background: #fff;
+    border-radius: 4px;
+  }
+}
+
+.order-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 47px;
+  &__back {
+    display: block;
+    height: 15px;
+    width: 15px;
+    &:hover .order-header__back-icon {
+      fill: #222;
+    }
+    .order-header__back-icon {
+      fill: #939393;
+      -moz-transition: fill 0.4s ease 0s;
+      transition: fill 0.4s ease 0s;
+    }
+  }
+
+  &__title {
+    padding-left: 20px;
+    font-size: 20px;
+    @include xs-block {
+      padding-left: 10px;
+      font-size: 18px;
+    }
+  }
+}
+.order-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+
+  @include md(flex-direction, column);
+  @include xs(margin-bottom, 20px);
+
+  &__text {
+    flex: 1;
+    padding-right: 30px;
+    font-size: 18px;
+    @include md-block {
+      order: 2;
+      margin-bottom: 7px;
+      text-align: center;
+      padding: 0 20px;
+    }
+  }
+
+  &__link {
+    padding-left: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    background: url("../img/icons/video.svg") no-repeat;
+    &:hover span {
+      color: lighten($yellowHoverColor, 10);
+    }
+    span {
+      color: $yellowColor;
+      transition: color 0.25s linear;
+    }
+    @include md-block {
+      order: 1;
+      margin-bottom: 12px;
+    }
+    @include xs(font-size, 20px);
+  }
+}
+
+.form-order {
+  &__countries {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    border: 1px solid #dedede;
+    border-bottom-color: transparent;
+  }
+  &__body {
+    padding: 20px 60px;
+    border: 1px solid $borderColor;
+    @include md(padding, 20px 40px);
+    @include sm(padding, 20px 20px);
+    @include xs(padding, 10px 10px);
+  }
+
+  &__tracking {
+    padding: 10px 0;
+  }
+
+  &__declaration {
+    padding: 10px 0;
+    @include xs-block {
+      flex-wrap: wrap;
+      padding: 5px 0;
+    }
+    @include xs(padding, 0);
+  }
+
+  &__method {
+    padding: 10px 0 0;
+  }
+
+  &__recipient {
+    padding: 10px 0;
+    @include xs-block {
+      padding: 10px 0;
+    }
+  }
+
+  &__services {
+    padding: 20px 60px 40px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border: 1px solid $borderColor;
+    border-top-color: transparent;
+    @include md(padding, 20px 40px);
+    @include sm(padding, 20px 20px);
+    @include xs(padding, 10px 10px 10px);
+  }
+  &__actions {
+    padding-top: 10px;
+  }
+}
+
+.tracking {
+  &__name {
+    display: inline-block;
+    width: 100%;
+    @extend .inputProps;
+  }
+}
+.countries {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 30px 20px 10px;
+  @include md(padding, 20px 20px 0);
+  @include sm-block {
+    justify-content: space-evenly;
+    padding: 20px 10px 0;
+  }
+  @include xs(padding, 20px 0px);
+}
+.country {
+  flex: 0 0 100px;
+  margin-bottom: 20px;
+  @include xs-block {
+    flex: 1;
+    min-width: 36px;
+    margin-bottom: 0;
+  }
+
+  &__input {
+    -webkit-appearance: none;
+    appearance: none;
+    position: absolute;
+
+    // -- events for radio buttons
+
+    &:checked ~ .country__label .label-coutry__btn {
+      background: url("../img/icons/Group\ 370.svg") no-repeat center / contain;
+    }
+    @include sm-block {
+      &:checked ~ .country__label .label-coutry__img {
+        border: 2px solid rgb(232, 119, 34);
+      }
+      &:checked ~ .country__label .label-coutry__name {
+        color: rgb(232, 119, 34);
+        font-weight: normal;
+      }
+    }
+    @include xs-block {
+      margin-bottom: 0;
+      &:checked ~ .country__label .label-coutry__img {
+        box-shadow: rgb(232, 120, 34) 0px 0px 8px -1px;
+      }
+    }
+  }
+}
+
+.label-coutry {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  @include sm(flex-direction, row);
+  @include xs(justify-content, center);
+  cursor: pointer;
+  &__img {
+    margin-bottom: 10px;
+    width: 32px;
+    height: 32px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+    border: 2px solid transparent;
+    border-radius: 50%;
+    @include sm-block {
+      margin-bottom: 0;
+    }
+
+    // -- modificators for flag images
+
+    &_unitedstates {
+      background-image: url("../img/icons/country-icons.svg#amn");
+    }
+    &_unitedkingdom {
+      background-image: url("../img/icons/country-icons.svg#anglia");
+    }
+    &_italy {
+      background-image: url("../img/icons/country-icons.svg#italy");
+    }
+    &_arab {
+      background-image: url("../img/icons/country-icons.svg#dubai");
+    }
+    &_germany {
+      background-image: url("../img/icons/country-icons.svg#germany");
+    }
+    &_china {
+      background-image: url("../img/icons/country-icons.svg#china");
+    }
+    &_russia {
+      background-image: url("../img/icons/country-icons.svg#rd");
+    }
+  }
+
+  &__name {
+    display: block;
+    min-width: 100px;
+    font-size: 16px;
+    text-align: center;
+    word-wrap: break-word;
+    color: $countryTextColor;
+    margin: auto;
+    @include sm-block {
+      text-align: left;
+      padding-left: 5px;
+      white-space: nowrap;
+    }
+    @include xs(display, none);
+  }
+
+  &__btn {
+    display: block;
+    margin-top: 10px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: url("../img/icons/Group\ 371.svg") no-repeat center / cover;
+    transition: background 0.25s linear;
+    @include sm(display, none);
+  }
+}
+
+.declaration {
+  display: flex;
+  justify-content: space-between;
+  &__name {
+    @extend .inputProps;
+    flex: 1;
+    margin-right: 20px;
+    @include xs-block {
+      flex: 1 100%;
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  }
+
+  &__wrapper {
+    display: flex;
+    @include xs(flex, 1);
+  }
+
+  &__price {
+    @extend .inputProps;
+    max-width: 132px;
+    outline: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-right: transparent;
+  }
+
+  &__currency {
+    @extend .inputProps;
+    display: block;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    @include xs(padding, 15px 15px 15px 14px);
+  }
+
+  &__sum {
+    align-self: flex-end;
+    min-width: 85px;
+    text-align: right;
+    padding: 0 2px 10px 20px;
+    display: flex;
+    justify-content: flex-end;
+    white-space: nowrap;
+    @include xs(flex, 1);
+  }
+  &__current-currency {
+  }
+}
+
+.recipient {
+  &__select {
+    width: 100%;
+    @extend .inputProps;
+  }
+}
+
+.method {
+  &__text {
+    font-size: 12px;
+    margin-bottom: 22px;
+    line-height: 1.4;
+    @include md(text-align, center);
+  }
+}
+
+.delivery-method {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  &__item {
+    flex: 1 33.33%;
+    margin-bottom: 20px;
+    @include md-block {
+      flex: 1 50%;
+      display: flex;
+      justify-content: center;
+    }
+    @include xs-block {
+      flex: 1 100%;
+      justify-content: flex-start;
+    }
+  }
+}
+
+.delivery {
+  &__input {
+    appearance: none;
+    position: absolute;
+    &:checked ~ .delivery__label .label-delivery__btn {
+      background: url("../img/icons/Group\ 370.svg") no-repeat center/ contain;
+    }
+  }
+}
+
+.label-delivery {
+  display: flex;
+  cursor: pointer;
+  @include xs-block {
+    width: 100%;
+    padding-left: 10px;
+  }
+
+  &__btn {
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: url("../img/icons/Group\ 371.svg") no-repeat center / contain;
+    transition: background 0.25s linear;
+  }
+
+  &__img {
+    display: block;
+    width: 26px;
+    height: 17px;
+    margin: 0 10px 0 15px;
+    &_air {
+      background: url("../img/icons/delivery-icons.svg#plane") no-repeat center / cover;
+    }
+    &_ship {
+      background: url("../img/icons/delivery-icons.svg#ship") no-repeat center / cover;
+    }
+    &_ground {
+      background: url("../img/icons/delivery-icons.svg#truck") no-repeat center / cover;
+    }
+  }
+
+  &__title {
+    display: block;
+    margin-bottom: 5px;
+  }
+
+  &__price {
+    display: block;
+    font-size: 12px;
+  }
+}
+
+.services-order {
+  display: flex;
+  flex-direction: column;
+  &__select {
+    width: 100%;
+    border: none;
+    outline: none;
+    font-size: 14px;
+    color: #000;
+    cursor: pointer;
+  }
+  &__sum {
+    padding-top: 20px;
+    margin-top: 20px;
+    align-self: flex-end;
+    width: 100%;
+    text-align: right;
+    border-top: 1px dashed $borderColor;
+  }
+}
+
+.actions-order {
+  display: flex;
+  flex-direction: column;
+  background-color: $pageColor;
+  @include md-block {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+  @include xs(flex-direction, column);
+  &__special {
+    align-self: flex-start;
+  }
+  &__send {
+    align-self: flex-end;
+  }
+}
+
+.special {
+  &__button {
+    @extend .btnProps;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 290px;
+    height: 42px;
+    background: #fff;
+    color: #939393;
+    border: 1px solid $borderColor;
+    @include md(width, 240px);
+    @include xs-block {
+      width: 100%;
+      height: 48px;
+      font-size: 16px;
+    }
+  }
+  &__icon {
+    display: block;
+    margin-right: 5px;
+    width: 14px;
+    height: 14px;
+    background: url("../img/icons/add.svg") no-repeat center;
+  }
+  @include xs-block {
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+}
+
+.send {
+  &__button {
+    @extend .btnProps;
+    width: 245px;
+    height: 42px;
+    background: $yellowColor;
+    box-shadow: 0px 3px 5px #0000003d;
+    color: #fff;
+    transition: background 0.25s linear;
+    &:hover {
+      background-color: lighten($yellowColor, 5);
+    }
+    @include xs-block {
+      width: 100%;
+      height: 48px;
+      font-size: 16px;
+    }
+  }
+  @include xs(width, 100%);
+}

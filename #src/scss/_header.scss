@@ -1,0 +1,125 @@
+.header-top {
+  background: #fff;
+  border: $topMenuBorder;
+  box-shadow: $topMenuShadow;
+  &__container {
+    height: 40px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+}
+.language {
+  position: relative;
+  width: 62px;
+  height: 26px;
+  background-color: #f4f4f4;
+  border-radius: 4px;
+  cursor: pointer;
+  &__selected {
+    display: flex;
+    padding: 5px 10px;
+    height: 100%;
+    align-items: center;
+    justify-content: space-between;
+    pointer-events: none;
+  }
+
+  &__list {
+    position: absolute;
+    z-index: 2;
+    top: 46px;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    visibility: hidden;
+    opacity: 0.5;
+    transition: 0.2s linear;
+  }
+
+  &__item {
+    display: block;
+    width: 100%;
+    height: 26px;
+  }
+
+  &__link {
+    padding: 5px 10px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-color: #f4f4f4;
+    transition: background 0.25s linear;
+    &:hover {
+      background-color: darken(#f4f4f4, 15);
+    }
+  }
+  &__icon {
+    //pointer-events: none;
+    background: #000;
+    display: block;
+    width: 12px;
+    height: 7px;
+    background: url("../img/icons/dropdown\ arrow.svg") no-repeat center;
+    transition: 0.25s linear;
+  }
+  &__img {
+    display: block;
+    width: 20px;
+    height: 15px;
+    &_arm {
+      background: url("../img/icons/language-icons.svg#arm") no-repeat center / 19px 15px;
+    }
+
+    &_rus {
+      background: url("../img/icons/language-icons.svg#rus") no-repeat center / 19px 15px;
+    }
+
+    &_eng {
+      background: url("../img/icons/language-icons.svg#usa") no-repeat center / 19px 15px;
+    }
+  }
+}
+.language_border {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.language__list_active {
+  top: 26px;
+  visibility: visible;
+  opacity: 1;
+}
+.language__icon_rotate {
+  transform: rotate(180deg);
+}
+//top header ends here
+
+.header-bottom {
+  background-color: $bottomMenuColor;
+  border: $bottomMenuBorder;
+  &__container {
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__logo {
+    width: 113px;
+    height: 30px;
+    background: url("../img/icons/globbing__logo.png") top left;
+    cursor: pointer;
+  }
+
+  &__calculator {
+    width: 20px;
+    height: 25px;
+    background: url("../img/icons/calc.svg") no-repeat center;
+  }
+}
+
+.calculator {
+  cursor: pointer;
+}
